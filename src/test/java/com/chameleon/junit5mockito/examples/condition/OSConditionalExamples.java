@@ -15,8 +15,6 @@ public class OSConditionalExamples {
 
     @Test
     @EnabledOnOs(MAC) // Тест отработает только в Mac OS
-    @DisplayName("😱")
-        // Вроде нормально отображается только в Mac OS
     void enabledOnMacOsTest() {
         assertEquals(25, 5 * 5);
     }

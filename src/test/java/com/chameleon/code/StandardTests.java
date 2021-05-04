@@ -24,6 +24,7 @@ class StandardTests {
     void succeedingTest() {
     }
 
+    @Disabled
     @Test
     void failingTest() {
         fail("a failing test");

@@ -5,6 +5,8 @@ plugins {
 group 'com.chameleon'
 version '1.0-SNAPSHOT'
 
+compileTestJava.options.encoding = 'UTF-8'
+
 repositories {
     mavenCentral()
     //jcenter()

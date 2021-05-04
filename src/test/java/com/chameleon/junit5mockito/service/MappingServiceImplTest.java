@@ -68,6 +68,7 @@ class MappingServiceImplTest {
      * Example 3
      */
     @Test
+    @DisplayName("Successful test \uD83D\uDC4C") // отображаемое имя этого теста
     void mappingRequestWithClientTypeCompanyTest() {
         RequestToService requestToService = new RequestToService(
                 UUID.fromString("a095d420-c73f-4814-947f-81365c15c992"),

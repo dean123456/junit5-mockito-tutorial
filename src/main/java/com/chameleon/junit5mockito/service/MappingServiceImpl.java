@@ -59,13 +59,10 @@ public class MappingServiceImpl implements MappingService {
     }
 
     private String convertType(ClientType clientType) {
-        switch (clientType) {
-            case INDIVIDUAL:
-                return "FL";
-            case COMPANY:
-                return "UL";
+        if (ClientType.COMPANY == clientType) {
+            return "UL";
         }
-        return null;
+        return "FL";
     }
 
     private List<String> createDocumentsList(String documentsList) {
