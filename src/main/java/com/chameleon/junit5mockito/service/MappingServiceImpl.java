@@ -4,8 +4,11 @@ import com.chameleon.junit5mockito.models.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 /**
  * Реализация входного и выходного маппинга
@@ -32,6 +35,10 @@ public class MappingServiceImpl implements MappingService {
         requestToExternalService.setId(Optional.ofNullable(request.getClientId())
                 .orElseThrow(() -> new RuntimeException("Value of clientId must be present")));
         requestToExternalService.setFlag(true);
+        requestToExternalService.setDocumentsList(Optional.ofNullable(request.getDocuments())
+                .filter(v -> v.length() != 0)
+                .map(this::createDocumentsList)
+                .orElseThrow(() -> new RuntimeException("List of documents must not be empty")));
         log.info("Request after mapping: " + requestToExternalService);
         return requestToExternalService;
     }
@@ -59,5 +66,10 @@ public class MappingServiceImpl implements MappingService {
                 return "UL";
         }
         return null;
+    }
+
+    private List<String> createDocumentsList(String documentsList) {
+        return Arrays.stream(documentsList.split(","))
+                .collect(Collectors.toList());
     }
 }

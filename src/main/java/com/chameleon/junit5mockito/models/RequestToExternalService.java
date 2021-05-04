@@ -1,5 +1,6 @@
 package com.chameleon.junit5mockito.models;
 
+import java.util.List;
 import java.util.Objects;
 
 public class RequestToExternalService {
@@ -8,6 +9,7 @@ public class RequestToExternalService {
     private String from; // система из которой поступил запрос
     private String id; // идентификатор клиента
     private boolean flag; // логический признак
+    private List<String> documentsList; // список запрашиваемых документов
 
     public RequestToExternalService() {
     }
@@ -16,12 +18,14 @@ public class RequestToExternalService {
                                     String type,
                                     String from,
                                     String id,
-                                    boolean flag) {
+                                    boolean flag,
+                                    List<String> documentsList) {
         this.requestId = requestId;
         this.type = type;
         this.from = from;
         this.id = id;
         this.flag = flag;
+        this.documentsList = documentsList;
     }
 
     public String getRequestId() {
@@ -64,17 +68,25 @@ public class RequestToExternalService {
         this.flag = flag;
     }
 
+    public List<String> getDocumentsList() {
+        return documentsList;
+    }
+
+    public void setDocumentsList(List<String> documentsList) {
+        this.documentsList = documentsList;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof RequestToExternalService)) return false;
         RequestToExternalService that = (RequestToExternalService) o;
-        return getFlag() == that.getFlag() && Objects.equals(getRequestId(), that.getRequestId()) && Objects.equals(getType(), that.getType()) && Objects.equals(getFrom(), that.getFrom()) && Objects.equals(getId(), that.getId());
+        return getFlag() == that.getFlag() && Objects.equals(getRequestId(), that.getRequestId()) && Objects.equals(getType(), that.getType()) && Objects.equals(getFrom(), that.getFrom()) && Objects.equals(getId(), that.getId()) && Objects.equals(getDocumentsList(), that.getDocumentsList());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getRequestId(), getType(), getFrom(), getId(), getFlag());
+        return Objects.hash(getRequestId(), getType(), getFrom(), getId(), getFlag(), getDocumentsList());
     }
 
     @Override
@@ -85,6 +97,7 @@ public class RequestToExternalService {
                 ", from='" + from + '\'' +
                 ", id='" + id + '\'' +
                 ", flag=" + flag +
+                ", documentsList=" + documentsList +
                 '}';
     }
 }
