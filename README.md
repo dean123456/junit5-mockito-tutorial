@@ -14,6 +14,8 @@
 * [Example 12][6]
 * [Example 13][7]
 * [Example 14][8]
+* [Example 15][9]
+* [Example 16][10]
 
 [1]: build.gradle
 [2]: src/test/java/com/chameleon/junit5mockito/service/MappingServiceImplTest.java
@@ -23,3 +25,5 @@
 [6]: src/test/java/com/chameleon/junit5mockito/examples/condition/JREConditionalExamples.java
 [7]: src/test/java/com/chameleon/junit5mockito/examples/condition/JVMPropertiesConditionalExamples.java
 [8]: src/test/java/com/chameleon/junit5mockito/examples/condition/EnvironmentConditionalExamples.java
+[9]: src/test/java/com/chameleon/junit5mockito/examples/condition/CustomConditionalExamples.java
+[10]: src/test/java/com/chameleon/junit5mockito/examples/OrderExamples.java

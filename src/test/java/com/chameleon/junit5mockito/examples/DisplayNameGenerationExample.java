@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Example 9
  * По очереди раскомментировать аннотации. Также есть вариант в src/test/resources/junit-platform.properties
  */
-//@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class) // заменяет символы подчёркивания на пробелыв именах тестовых методов
+//@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class) // заменяет символы подчёркивания на пробелы в именах тестовых методов
 //@DisplayNameGeneration(DisplayNameGenerator.IndicativeSentences.class) // создает полные предложения, объединяя имена тестовых методов и класса их включающих
 //@IndicativeSentencesGeneration(separator = " -> ", generator = DisplayNameGenerator.ReplaceUnderscores.class) // создает полные предложения, объединяя имена тестовых методов и класса их включающих, используя кастомный разделитель
 public class DisplayNameGenerationExample {
