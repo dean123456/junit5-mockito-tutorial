@@ -16,6 +16,7 @@
 * [Example 14][8]
 * [Example 15][9]
 * [Example 16][10]
+* [Example 17][11]
 
 [1]: build.gradle
 [2]: src/test/java/com/chameleon/junit5mockito/service/MappingServiceImplTest.java
@@ -27,3 +28,4 @@
 [8]: src/test/java/com/chameleon/junit5mockito/examples/condition/EnvironmentConditionalExamples.java
 [9]: src/test/java/com/chameleon/junit5mockito/examples/condition/CustomConditionalExamples.java
 [10]: src/test/java/com/chameleon/junit5mockito/examples/OrderExamples.java
+[11]: src/test/java/com/chameleon/junit5mockito/service/ReadFromDBServiceImplTest.java
