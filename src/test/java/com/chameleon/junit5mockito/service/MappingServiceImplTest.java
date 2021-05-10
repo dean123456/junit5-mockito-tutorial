@@ -3,8 +3,13 @@ package com.chameleon.junit5mockito.service;
 import com.chameleon.junit5mockito.models.ClientType;
 import com.chameleon.junit5mockito.models.RequestToExternalService;
 import com.chameleon.junit5mockito.models.RequestToService;
+import com.chameleon.junit5mockito.service.aggregator.RequestToExternalServiceAggregator;
+import com.chameleon.junit5mockito.service.aggregator.RequestToServiceAggregator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.aggregator.AggregateWith;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.List;
 import java.util.UUID;
@@ -185,6 +190,25 @@ class MappingServiceImplTest {
                             () -> assertTrue(type.endsWith("L")));
                 },
                 () -> assertLinesMatch(expected.getDocumentsList(), actual.getDocumentsList())); // проверка построчно
+    }
+
+    /**
+     * Example 30
+     */
+    @ParameterizedTest(name = "{index} => test with {1}")
+    @CsvSource({
+            "a095d420-c73f-4814-947f-81365c15c992, INDIVIDUAL, XYZ, 123456, 'passport,snils', a095d420-c73f-4814-947f-81365c15c992, FL, XYZ000001, 123456, true, 'passport,snils'",
+            "d455d420-c73f-4814-947f-81365c15c992, COMPANY, XYZ, 123456, 'passport,snils', d455d420-c73f-4814-947f-81365c15c992, UL, XYZ000001, 123456, true, 'passport,snils'",
+    }) // в каждой строчке значения полей как передоваемого объекта, так и ожидаемого результата
+    @DisplayName("Example 30") // отображаемое имя этого теста
+    void mappingRequestWithClientTypeIndividualWithAggregatorsTest( // внедрение пользовательских агрегаторов
+            @AggregateWith(RequestToServiceAggregator.class) RequestToService requestToService,
+            @AggregateWith(RequestToExternalServiceAggregator.class) RequestToExternalService expected
+            ) {
+
+        RequestToExternalService actual = mappingService.mappingRequest(requestToService); // передали в тестируемый метод запрос и получили результат
+
+        assertEquals(expected, actual);
     }
 
 

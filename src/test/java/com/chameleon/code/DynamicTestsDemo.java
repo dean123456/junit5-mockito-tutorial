@@ -1,31 +1,30 @@
 package com.chameleon.code;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.DynamicContainer.dynamicContainer;
-import static org.junit.jupiter.api.DynamicTest.dynamicTest;
+import org.junit.jupiter.api.DynamicNode;
+import org.junit.jupiter.api.DynamicTest;
+import org.junit.jupiter.api.TestFactory;
+import org.junit.jupiter.api.function.ThrowingConsumer;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Random;
 import java.util.function.Function;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.function.ThrowingConsumer;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.DynamicContainer.dynamicContainer;
+import static org.junit.jupiter.api.DynamicTest.dynamicTest;
 
 class DynamicTestsDemo {
 
-    // This will result in a JUnitException!
-    @Disabled
     @TestFactory
-    List<String> dynamicTestsWithInvalidReturnType() {
-        return Arrays.asList("Hello");
+    Collection<DynamicTest> dynamicTestsFromCollection() {
+        return Arrays.asList(
+                dynamicTest("1st dynamic test", () -> assertEquals(25, 5 * 5)),
+                dynamicTest("2nd dynamic test", () -> assertEquals(36, 6 * 6))
+        );
     }
 
     @TestFactory
