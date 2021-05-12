@@ -33,9 +33,14 @@
 * [Example 31][24]
 * [Example 32][25]
 * [Example 33][26]
+* [Example 34][27]
+* [Example 35][28]
+* [Example 36][29]
+* [Example 37][30]
+* [Example 38][30]
 
 [1]: build.gradle
-[2]: src/test/java/com/chameleon/junit5mockito/service/MappingServiceImplTest.java
+[2]: src/test/java/com/chameleon/junit5mockito/service/MappingServiceImplRequestTest.java
 [3]: src/test/java/com/chameleon/junit5mockito/examples/DisplayNameGenerationExample.java
 [4]: src/test/java/com/chameleon/junit5mockito/examples/AssumptionsExamples.java
 [5]: src/test/java/com/chameleon/junit5mockito/examples/condition/OSConditionalExamples.java
@@ -60,3 +65,7 @@
 [24]: src/test/java/com/chameleon/junit5mockito/examples/TimeoutExamples.java
 [25]: src/test/java/com/chameleon/junit5mockito/examples/ParallelExecutionExample.java
 [26]: src/test/java/com/chameleon/junit5mockito/examples/TempDirExamples.java
+[27]: 1
+[28]: src/test/java/com/chameleon/junit5mockito/mockito/ManualMockCreationExamples.java
+[29]: src/test/java/com/chameleon/junit5mockito/mockito/AnnotationMockCreationExamples.java
+[30]: src/test/java/com/chameleon/junit5mockito/service/MappingServiceImplResponseTest.java

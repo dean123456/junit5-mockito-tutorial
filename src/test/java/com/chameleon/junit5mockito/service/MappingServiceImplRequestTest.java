@@ -17,7 +17,7 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Mapping tests") // общее отображаемое имя всех тестовых результатов
-class MappingServiceImplTest {
+class MappingServiceImplRequestTest {
 
     MappingService mappingService = new MappingServiceImpl();
 
@@ -209,10 +209,5 @@ class MappingServiceImplTest {
         RequestToExternalService actual = mappingService.mappingRequest(requestToService); // передали в тестируемый метод запрос и получили результат
 
         assertEquals(expected, actual);
-    }
-
-
-    @Test
-    void mappingResponse() {
     }
 }

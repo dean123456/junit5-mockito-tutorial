@@ -15,6 +15,15 @@ import java.util.stream.Collectors;
  */
 public class MappingServiceImpl implements MappingService {
 
+    private NameService nameService;
+
+    public MappingServiceImpl() {
+    }
+
+    public MappingServiceImpl(NameService nameService) {
+        this.nameService = nameService;
+    }
+
     private static final Logger log = LoggerFactory.getLogger(MappingServiceImpl.class);
 
     private static final String SYSTEM_CODE = "000001";
@@ -45,17 +54,25 @@ public class MappingServiceImpl implements MappingService {
 
     @Override
     public ResponseFromService mappingResponse(ResponseFromExternalService response) {
-        var responseFromController = new ResponseFromService();
+        var responseFromService = new ResponseFromService();
         log.info("Response before mapping: " + response);
-        responseFromController.setRequestId(Optional.ofNullable(response.getRequestId())
+        responseFromService.setRequestId(Optional.ofNullable(response.getRequestId())
                 .map(UUID::fromString)
                 .orElseThrow(() -> new RuntimeException("Value of requestId must be present")));
-        Optional.ofNullable(response.getCompanyName()).ifPresent(responseFromController::setFirstName);
-        Optional.ofNullable(response.getCompanyName()).ifPresent(responseFromController::setLastName);
-        Optional.ofNullable(response.getCompanyName()).ifPresent(responseFromController::setPatronymic);
-        Optional.ofNullable(response.getCompanyName()).ifPresent(responseFromController::setCompanyName);
-        log.info("Response after mapping: " + responseFromController);
-        return responseFromController;
+        Optional.ofNullable(response.getInn()).ifPresentOrElse(inn -> {
+                    responseFromService.setFio(nameService.getFio(inn));
+                    responseFromService.setCompanyName(nameService.getCompanyName(inn));
+                },
+                () -> nameService.notifyIfInnNull());
+        log.info("Response after mapping: " + responseFromService);
+        return responseFromService;
+    }
+
+    public String compareNames(String first, String second, String third) {
+        log.info("Compare: [{}, {}, {}]", first, second, third);
+        String company = nameService.compare(first, second, third);
+        log.info("Result of comparing: {}", company);
+        return company;
     }
 
     private String convertType(ClientType clientType) {
