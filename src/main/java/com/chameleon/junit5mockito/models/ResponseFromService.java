@@ -19,11 +19,6 @@ public class ResponseFromService {
         this.companyName = companyName;
     }
 
-    public ResponseFromService(UUID requestId,
-                               String companyName) {
-        this(requestId, null, companyName);
-    }
-
     public UUID getRequestId() {
         return requestId;
     }

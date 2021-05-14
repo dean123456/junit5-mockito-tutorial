@@ -38,6 +38,27 @@
 * [Example 36][29]
 * [Example 37][30]
 * [Example 38][30]
+* [Example 39][30]
+* [Example 40][30]
+* [Example 41][30]
+* [Example 42][30]
+* [Example 43][31]
+* [Example 44][30]
+* [Example 45][30]
+* [Example 46][32]
+* [Example 47][32]
+* [Example 48][32]
+* [Example 49][32]
+* [Example 50][32]
+* [Example 51][30]
+* [Example 52][30]
+* [Example 53][30]
+* [Example 54][30]
+* [Example 55][30]
+* [Example 56][30]
+* [Example 57][33]
+* [Example 58][34]
+* [Example 59][35]
 
 [1]: build.gradle
 [2]: src/test/java/com/chameleon/junit5mockito/service/MappingServiceImplRequestTest.java
@@ -69,3 +90,8 @@
 [28]: src/test/java/com/chameleon/junit5mockito/mockito/ManualMockCreationExamples.java
 [29]: src/test/java/com/chameleon/junit5mockito/mockito/AnnotationMockCreationExamples.java
 [30]: src/test/java/com/chameleon/junit5mockito/service/MappingServiceImplResponseTest.java
+[31]: src/test/java/com/chameleon/junit5mockito/mockito/MatchersExamples.java
+[32]: src/test/java/com/chameleon/junit5mockito/service/MappingServiceImplCompareTest.java
+[33]: src/test/java/com/chameleon/junit5mockito/mockito/ManualSpyCreationExamples.java
+[34]: src/test/java/com/chameleon/junit5mockito/mockito/AnnotationSpyCreationExamples.java
+[35]: src/test/java/com/chameleon/junit5mockito/service/MappingServiceImplSpyTest.java

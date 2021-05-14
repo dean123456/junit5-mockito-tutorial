@@ -20,14 +20,6 @@ dependencies {
     testImplementation 'org.mockito:mockito-junit-jupiter:3.9.0'
 
     implementation 'ch.qos.logback.contrib:logback-json-classic:0.1.5'
-
-    /*testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-    testImplementation 'org.junit.jupiter:junit-jupiter-params'//: '5.6.0'*/
-    // https://mvnrepository.com/artifact/org.junit.platform/junit-platform-console-standalone
-    //testImplementation group: 'org.junit.platform', name: 'junit-platform-console-standalone', version: '1.7.1'
-
-
 }
 
 test {

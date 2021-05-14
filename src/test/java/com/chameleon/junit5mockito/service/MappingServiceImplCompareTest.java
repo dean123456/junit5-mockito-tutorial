@@ -16,7 +16,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 class MappingServiceImplCompareTest {
 
     @Mock
-    private NameService nameServiceMock; // создание мока с помощью аннотации
+    private NameServiceImpl nameServiceMock; // создание мока с помощью аннотации
 
     @InjectMocks
     private MappingServiceImpl mappingService; // создание экземпляра сервиса и внедрение мока с помощью аннотации

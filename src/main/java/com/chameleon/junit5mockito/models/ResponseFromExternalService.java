@@ -7,9 +7,6 @@ public class ResponseFromExternalService {
     private String requestId; // идентификатор запроса
     private String inn; // ИНН
 
-    public ResponseFromExternalService() {
-    }
-
     public ResponseFromExternalService(String requestId,
                                        String inn) {
         this.requestId = requestId;

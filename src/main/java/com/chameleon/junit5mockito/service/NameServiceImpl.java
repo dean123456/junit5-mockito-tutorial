@@ -3,21 +3,21 @@ package com.chameleon.junit5mockito.service;
 public class NameServiceImpl implements NameService{
     @Override
     public String getFio(String inn) {
-        return null;
+        return "UNKNOWN";
     }
 
     @Override
     public String getCompanyName(String inn) {
-        return null;
+        return "UNKNOWN";
     }
 
     @Override
     public String compare(String first, String second, String third) {
-        return null;
+        return "UNKNOWN";
     }
 
     @Override
     public void notifyIfInnNull() {
-        throw new RuntimeException("Can't notify because have no any code");
+        throw new RuntimeException("This method was not mocked");
     }
 }

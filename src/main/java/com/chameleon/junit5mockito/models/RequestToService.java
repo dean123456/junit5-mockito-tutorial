@@ -10,9 +10,6 @@ public class RequestToService {
     private String clientId; // идентификатор клиента
     private String documents; // строка, содержащая список запрашиваемых документов, разделённых запятой
 
-    public RequestToService() {
-    }
-
     public RequestToService(UUID requestId,
                             ClientType clientType,
                             String systemFrom,

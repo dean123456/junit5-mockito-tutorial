@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.times;
 
 // Example 37
 @ExtendWith(MockitoExtension.class)
@@ -21,7 +22,7 @@ class MappingServiceImplResponseTest {
 
     // Example 37
     @Mock(answer = Answers.RETURNS_SMART_NULLS) // Создание мока и установка поведения по-умолчанию
-    private NameService nameServiceMock; // создание мока с помощью аннотации
+    private NameServiceImpl nameServiceMock; // создание мока с помощью аннотации
 
     //private MappingServiceImpl mappingService = new MappingServiceImpl(nameServiceMock); // ручное внедрение моков
 
@@ -249,6 +250,39 @@ class MappingServiceImplResponseTest {
         // Тест не пройдёт
         /*order.verify(nameServiceMock).getCompanyName(anyString());
         order.verify(nameServiceMock).getFio(anyString());*/
+    }
+
+    // Example 55
+    @Captor
+    ArgumentCaptor<String> captor;
+
+    // ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class); // ручное создание ArgumentCaptor
+
+    // Example 56
+    @Test
+    void mappingResponseWithCaptorTest() {
+        Mockito.when(nameServiceMock.getFio(eq("123456"))).thenReturn("Иванов Иван Иванович"); // мокируем метод на возврат значения
+        Mockito.when(nameServiceMock.getCompanyName(anyString())).thenReturn(null); // мокируем метод на возврат null
+
+        ResponseFromExternalService responseFromExternalService_1 = new ResponseFromExternalService(
+                "a095d420-c73f-4814-947f-81365c15c992",
+                "123456"
+        ); // создали первый ответ из внешнего сервиса
+
+        mappingService.mappingResponse(responseFromExternalService_1); // передали ответ в тестируемый метод
+
+        Mockito.verify(nameServiceMock).getFio(captor.capture()); // проверяем, что метод был вызван 1 раз и сохраняем значение аргумента
+        assertEquals("123456", captor.getValue()); // проверяем, что значение аргумента эквивалентно ожидаемому
+
+        ResponseFromExternalService responseFromExternalService2 = new ResponseFromExternalService(
+                "a095d420-c73f-4814-947f-81365c15c992",
+                "654321"
+        ); // создали второй ответ из внешнего сервиса
+
+        mappingService.mappingResponse(responseFromExternalService2); // передали ответ в тестируемый метод
+
+        Mockito.verify(nameServiceMock, times(2)).getCompanyName(captor.capture()); // проверяем, что метод был вызван 2 раза и сохраняем значение аргумента
+        assertEquals("654321", captor.getValue()); // проверяем, что значение аргумента эквивалентно ожидаемому
     }
 
 }
