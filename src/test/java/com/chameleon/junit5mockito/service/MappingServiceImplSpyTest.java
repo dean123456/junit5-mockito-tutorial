@@ -25,7 +25,7 @@ class MappingServiceImplSpyTest {
     private MappingServiceImpl mappingService; // создание экземпляра сервиса и внедрение шпиона с помощью аннотации
 
     @Test
-    void mappingResponse() {
+    void mappingResponseWithSpyTest() {
         Mockito.when(nameServiceSpy.getFio(eq("123456"))).thenReturn("Иванов Иван Иванович"); // мокируем метод на возврат значения
         // Также будет вызван реальный метод getCompanyName("123456");
 
