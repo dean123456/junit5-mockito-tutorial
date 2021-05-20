@@ -20,6 +20,8 @@ dependencies {
     testImplementation 'org.mockito:mockito-junit-jupiter:3.9.0'
 
     implementation 'ch.qos.logback.contrib:logback-json-classic:0.1.5'
+
+    //implementation 'org.junit.platform:junit-platform-console-standalone:1.7.2'
 }
 
 test {
