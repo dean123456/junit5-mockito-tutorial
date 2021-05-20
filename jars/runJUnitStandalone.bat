@@ -1,3 +1,4 @@
+:: Example 34
 :: обычно скомпилированные тестовые классы находятся в следующих директориях ^
 :: gradle: build/classes/java/test ^
 :: maven: target/test-classes
