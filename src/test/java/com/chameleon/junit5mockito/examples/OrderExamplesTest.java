@@ -16,21 +16,21 @@ public class OrderExamplesTest {
 
     @Test // символ 'c', приведённый к int равен 99
     @Order(1)
-    //@DisplayName("Third")
+    @DisplayName("Third")
     void c() {
         assertEquals(25, 5 * 5);
     }
 
-    @Test // символ 'c', приведённый к int равен 98
+    @Test // символ 'b', приведённый к int равен 98
     @Order(2)
-    //@DisplayName("Second")
+    @DisplayName("Second")
     void b() {
         assertEquals(25, 5 * 5);
     }
 
-    @Test // символ 'c', приведённый к int равен 97
+    @Test // символ 'a', приведённый к int равен 97
     @Order(3)
-    //@DisplayName("First")
+    @DisplayName("First")
     void a() {
         assertEquals(25, 5 * 5);
     }
